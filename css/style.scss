@@ -13,6 +13,13 @@ $light-grayish-blue: hsl(210, 46%, 95%);
   padding: 0;
 }
 
+p {
+  color: $desaturated-dark-blue;
+}
+
+h3 {
+  font-size: 12px;
+}
 body {
   font-family: "Manrope", sans-serif;
   font-size: 13px;
@@ -21,24 +28,111 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 100vh;
+  height: 100vh;
   flex-direction: column;
 }
 
 .container {
+  max-width: 730px;
+  min-height: 280px;
   display: flex;
-  flex-direction: col;
+  // flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #fff;
-  .img-container {
-    height: 200px;
-    width: 200px;
-    img {
-      height: 100%;
-      width: 100%;
-    }
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  .product {
+    height: 100%;
+    width: 40%;
+    border-radius: 10px 0 0 10px;
   }
   .description {
+    width: 60%;
+    padding: 40px;
+
+    .title {
+      margin-bottom: 1rem;
+    }
+    .subtitle {
+      margin-bottom: 2rem;
+    }
+
+    .user {
+      display: flex;
+      justify-content: space-between;
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+      .user-desc {
+        margin: 0 6px;
+        flex: 2;
+        h3 {
+          margin-bottom: 2px;
+        }
+        p {
+          font-size: 12px;
+        }
+      }
+      .share {
+        position: relative;
+        background-color: $light-grayish-blue;
+        height: 33px;
+        width: 33px;
+        border-radius: 50%;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $dark-grayish-blue;
+          svg {
+            path {
+              fill: #fff;
+            }
+          }
+        }
+        svg {
+          display: block;
+          margin: 9px auto;
+        }
+
+        .social {
+          display: none;
+          z-index: 1;
+          height: 55px;
+          width: 250px;
+          position: absolute;
+          left: -320%;
+          top: -220%;
+          background: $dark-grayish-blue;
+          // display: flex;
+          justify-content: space-around;
+          align-items: center;
+          border-radius: 10px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+            0 1px 2px rgba(0, 0, 0, 0.24);
+          transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+          p {
+            color: #fff;
+            font-size: 14px;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: 55px;
+            border-style: solid;
+            border-width: 20px 20px 0 20px;
+            border-color: $dark-grayish-blue transparent transparent transparent;
+          }
+          &.active {
+            display: flex;
+          }
+        }
+      }
+    }
   }
 }
